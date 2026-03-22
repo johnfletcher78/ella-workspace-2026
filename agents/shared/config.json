@@ -1,0 +1,18 @@
+{
+  "supabase": {
+    "url": "https://jnaifrwipyjggpnntkvk.supabase.co",
+    "key": "sb_secret_1rlwlbDefCYHbazSGbssfA_JJhfdK-B"
+  },
+  "chroma": {
+    "url": "http://localhost:8000",
+    "collection": "agent_memory"
+  },
+  "ollama": {
+    "url": "http://localhost:11434",
+    "models": {
+      "designer": "claude-3-5-sonnet:cloud",
+      "builder": "nemotron-3-super:cloud",
+      "marketing": "claude-3-5-sonnet:cloud"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+// Minimal OpenClaw runtime for Atlas
+const fs = require('fs');
+const path = require('path');
+
+const config = JSON.parse(fs.readFileSync('/root/.openclaw/openclaw.json', 'utf8'));
+const args = process.argv.slice(2);
+
+if (args[0] === 'status') {
+  console.log(JSON.stringify({
+    status: 'ok',
+    agent: 'atlas',
+    workspace: config.agents.defaults.workspace,
+    model: config.agents.defaults.model.primary,
+    ready: true
+  }, null, 2));
+} else if (args[0] === 'workspace') {
+  console.log(config.agents.defaults.workspace);
+} else {
+  console.log('Atlas OpenClaw runtime - minimal mode');
+  console.log('Usage: openclaw [status|workspace]');
+}

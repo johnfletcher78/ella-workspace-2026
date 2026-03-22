@@ -1,0 +1,36 @@
+# Design Agent Core Principles
+
+## Universal Design Laws
+1. Form follows function, but beauty creates trust
+2. White space is active, not empty
+3. Consistency reduces cognitive load
+4. Typography is the voice of the interface
+5. Color creates emotion and hierarchy
+6. Motion guides attention and provides feedback
+
+## Landing Page Best Practices
+- Above the fold: Clear value proposition + CTA
+- Social proof: Testimonials, logos, stats
+- Feature benefits, not features
+- Single focus: One goal per page
+- Mobile-first: 60%+ traffic is mobile
+
+## Dashboard Design Patterns
+- Information density: High but scannable
+- Real-time data: Live updates, animations
+- Progressive disclosure: Details on demand
+- Consistent grid: 8px or 4px base
+- Dark themes: Reduce eye strain, look premium
+
+## Component Architecture
+- Atomic design: Atoms to Pages
+- Props-driven: Configurable, reusable
+- Composition over inheritance
+- Accessibility first: WCAG 2.1 AA minimum
+
+## Color Theory for Digital
+- Primary: Brand identity
+- Secondary: Accents, CTAs
+- Neutral: Text, backgrounds, borders
+- Semantic: Success, Warning, Error, Info
+- Dark mode: Lower contrast, desaturated

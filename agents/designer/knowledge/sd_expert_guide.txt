@@ -1,0 +1,206 @@
+# Stable Diffusion - Designer Agent Expert Guide
+
+## Core Concepts
+
+### What is Stable Diffusion?
+- Open-source AI image generation model
+- Latent diffusion: Works in compressed latent space (faster)
+- Version 1.5, 2.1, XL, SDXL Turbo
+- Local execution: Privacy, no API costs
+
+## Model Types
+
+### Base Models
+- **SD 1.5**: Versatile, most compatible
+- **SD 2.1**: Better anatomy, less flexible
+- **SDXL**: 1024x1024 native, higher quality
+- **SDXL Turbo**: Real-time generation (1-4 steps)
+
+### Specialized Models (LoRA)
+- **Photorealistic**: Realistic Vision, EpicRealism
+- **Anime**: Anything V5, Counterfeit
+- **Artistic**: DreamShaper, Deliberate
+- **Specific styles**: Character LoRAs, style LoRAs
+
+## Prompt Engineering
+
+### Structure
+```
+[Subject] + [Action] + [Environment] + [Style] + [Quality tags]
+```
+
+### Example
+```
+Cyberpunk dashboard interface, holographic displays, 
+neon blue and purple lighting, futuristic UI design,
+high detail, 8k, sharp focus, professional photography
+```
+
+### Positive Prompt Tips
+- Be specific: "red sports car" vs "car"
+- Use quality tags: "8k, highly detailed, masterpiece"
+- Include style: "digital art, concept art, photorealistic"
+- Lighting: "soft lighting, dramatic shadows, volumetric"
+
+### Negative Prompts (What to avoid)
+```
+blurry, low quality, distorted, deformed, 
+bad anatomy, watermark, signature, cropped
+```
+
+## Parameters
+
+### Sampling Steps
+- 20-30: Standard quality
+- 30-50: Higher quality (slower)
+- 4-8: Turbo models only
+
+### CFG Scale (Classifier Free Guidance)
+- 7-9: Balanced (recommended)
+- 10-15: More literal to prompt
+- 3-5: More creative/freestyle
+
+### Resolution
+- SD 1.5: 512x512 (native), 768x768 (upscale)
+- SDXL: 1024x1024 (native)
+- Aspect ratios: 16:9, 9:16, 4:3, etc.
+
+### Samplers
+- **DPM++ 2M Karras**: Fast, good quality
+- **Euler a**: Creative, varied results
+- **DPM++ SDE Karras**: Best quality (slower)
+
+## Workflow for Designer
+
+### 1. Mood Board Creation
+```
+Prompt: "Landing page hero section, modern SaaS, 
+blue gradient, clean minimal UI, professional, 
+8k, dribbble, behance"
+- Generate 4 variations
+- Pick best for mood
+```
+
+### 2. Background Images
+```
+Prompt: "Abstract tech background, gradient mesh, 
+dark theme, subtle patterns, high quality"
+- Size: 1920x1080
+- Use as CSS background or component
+```
+
+### 3. Icon Generation
+```
+Prompt: "3D icon, settings gear, glass morphism, 
+purple and blue, soft shadows, isolated on white"
+- Size: 512x512
+- Remove background or use as-is
+```
+
+### 4. Mockup Enhancement
+```
+Prompt: "iPhone 15 mockup, floating in space, 
+soft lighting, clean background, product photography"
+- Add screenshots in post
+```
+
+## Local Setup (RTX 4080)
+
+### Installation
+```bash
+# Clone WebUI
+git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
+cd stable-diffusion-webui
+
+# Install models to models/Stable-diffusion/
+# Download from HuggingFace or CivitAI
+
+# Launch with API
+python launch.py --api --listen --port 7860
+```
+
+### API Usage
+```python
+import requests
+
+response = requests.post('http://localhost:7860/sdapi/v1/txt2img', json={
+    'prompt': 'modern dashboard UI, dark theme',
+    'negative_prompt': 'blurry, low quality',
+    'steps': 30,
+    'cfg_scale': 7,
+    'width': 1024,
+    'height': 1024,
+    'sampler_name': 'DPM++ 2M Karras'
+})
+
+image_data = response.json()['images'][0]
+```
+
+## Best Resources
+
+### Model Downloads
+- **CivitAI**: Community models (https://civitai.com)
+- **HuggingFace**: Official models (https://huggingface.co)
+
+### Prompt Libraries
+- **PromptHero**: Example prompts (https://prompthero.com)
+- **Lexica**: Search generated images (https://lexica.art)
+
+### Tools
+- **AUTOMATIC1111**: Full-featured WebUI
+- **ComfyUI**: Node-based workflow
+- **InvokeAI**: Artist-friendly interface
+
+## Common Use Cases for Designer
+
+### 1. Hero Images
+Generate unique hero backgrounds for landing pages
+
+### 2. Icon Sets
+Create consistent iconography in specific style
+
+### 3. Mockup Backgrounds
+Product shots with perfect lighting
+
+### 4. Illustrations
+Blog post illustrations, empty states, error pages
+
+### 5. Texture/Patterns
+Subtle backgrounds, noise textures, gradients
+
+## Pro Tips
+
+1. **Seed Control**: Use same seed for consistency
+2. **Prompt Variations**: Small changes = big results
+3. **Batch Generation**: Generate 4-8, pick best
+4. **Post-Processing**: Use Photoshop/Figma for final polish
+5. **Upscaling**: Generate small, upscale 2x or 4x
+
+## Ethics & Copyright
+
+- **Training data**: May include copyrighted works
+- **Commercial use**: Generally OK with base models
+- **Attribution**: Check specific model licenses
+- **Transparency**: Disclose AI-generated when required
+
+## Integration with Workflow
+
+### When to Use SD:
+- Unique hero images
+- Custom illustrations
+- Concept visualization
+- Texture generation
+
+### When NOT to use SD:
+- Client logos (copyright risk)
+- Product photos (use real photos)
+- Legal documents
+- UI components (use CSS/SVG)
+
+## Next Steps for Expert Mastery
+
+1. **Install locally** on RTX 4080
+2. **Practice prompts** daily
+3. **Build LoRA library** for consistent styles
+4. **Create templates** for common use cases
+5. **Integrate API** into design workflow

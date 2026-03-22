@@ -1,0 +1,4 @@
+Atlas running:
+  Model: kimi-k2.5:cloud
+  Sub-agents: nemotron-3-super:cloud
+  Cloud: configured
